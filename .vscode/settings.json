@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.cargo.target": "riscv64gc-unknown-none-elf",
+    // Prevent "can't find crate for `test`" error on no_std
+    // Ref: https://github.com/rust-lang/vscode-rust/issues/729
+    "rust-analyzer.checkOnSave.enable": false
+}

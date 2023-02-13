@@ -1,0 +1,9 @@
+**/.*/*
+!**/.cargo/*
+!/.github/*
+!/.vscode/settings.json
+
+/target
+*.asm
+*.bin
+!/rustsbi-qemu.bin
