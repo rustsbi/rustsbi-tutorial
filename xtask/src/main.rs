@@ -122,8 +122,9 @@ impl QemuArgs {
             .arg("-nographic")
             .arg("-bios")
             .arg(objcopy(elf, true))
-            .arg("-kernel")
-            .arg(PROJECT.join("test-kernel.bin")) // TODO
+            // TODO
+            // .arg("-kernel")
+            // .arg(PROJECT.join("test-kernel.bin"))
             .args(&["-smp", &self.smp.unwrap_or(1).to_string()])
             .args(&["-m", "64M"])
             .args(&["-serial", "mon:stdio"])
