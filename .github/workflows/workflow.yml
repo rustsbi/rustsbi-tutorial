@@ -1,0 +1,28 @@
+﻿name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - "**/*.md"
+      - "LICENSE"
+  pull_request:
+    paths-ignore:
+      - "**/*.md"
+      - "LICENSE"
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check format
+        run: cargo fmt --all --check
+
+      - name: Make every chapter
+        run: |
+          cargo make --ch 1
+          cargo make --ch 2
+          cargo make --ch 3
+          cargo make --ch 4
