@@ -10,6 +10,7 @@ authors = ["YdrMaster <ydrml@hotmail.com>"]
 dtb-walker = "=0.2.0-alpha.3"
 rcore-console = "0.0.0"
 sifive-test-device = "0.0.0"
+linker = { path = "../linker" }
 
 [build-dependencies]
 linker = { path = "../linker" }
