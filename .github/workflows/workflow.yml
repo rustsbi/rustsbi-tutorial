@@ -26,3 +26,4 @@ jobs:
           cargo make --ch 2
           cargo make --ch 3
           cargo make --ch 4
+          cargo make --ch 5

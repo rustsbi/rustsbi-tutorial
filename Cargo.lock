@@ -34,8 +34,10 @@ version = "0.0.0"
 name = "ch2"
 version = "0.0.0"
 dependencies = [
+ "dtb-walker",
  "linker",
  "rcore-console",
+ "sifive-test-device",
 ]
 
 [[package]]
@@ -47,6 +49,13 @@ dependencies = [
 
 [[package]]
 name = "ch4"
+version = "0.0.0"
+dependencies = [
+ "linker",
+]
+
+[[package]]
+name = "ch5"
 version = "0.0.0"
 dependencies = [
  "linker",
@@ -88,6 +97,12 @@ checksum = "783fe232adfca04f90f56201b26d79682d4cd2625e0bc7290b95123afe558ade"
 dependencies = [
  "os_str_bytes",
 ]
+
+[[package]]
+name = "dtb-walker"
+version = "0.2.0-alpha.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9404d41caa1aa659f7be44d5a902e318c0672900822fe9ca41d9e38c14b52332"
 
 [[package]]
 name = "errno"
@@ -328,6 +343,12 @@ checksum = "0efd8caf556a6cebd3b285caf480045fcc1ac04f6bd786b09a6f11af30c4fcf4"
 dependencies = [
  "serde",
 ]
+
+[[package]]
+name = "sifive-test-device"
+version = "0.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ba50a6fd7cb5cdb2645fb93fb2bbae7d8d78390677a889bdcfaf13c3d29286d0"
 
 [[package]]
 name = "spin"
