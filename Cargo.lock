@@ -45,6 +45,7 @@ name = "ch3"
 version = "0.0.0"
 dependencies = [
  "linker",
+ "sifive-test-device",
 ]
 
 [[package]]
@@ -52,6 +53,7 @@ name = "ch4"
 version = "0.0.0"
 dependencies = [
  "linker",
+ "sifive-test-device",
 ]
 
 [[package]]
@@ -59,6 +61,7 @@ name = "ch5"
 version = "0.0.0"
 dependencies = [
  "linker",
+ "sifive-test-device",
 ]
 
 [[package]]

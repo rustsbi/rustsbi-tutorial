@@ -22,8 +22,10 @@ SECTIONS {
         *(.sdata .sdata.*)
     } > DRAM
     .bss (NOLOAD) : {
+        __sbss = .;
         *(.bss .bss.*)
         *(.sbss .sbss.*)
+        __ebss = .;
     } > DRAM
     .boot (NOLOAD) : ALIGN(8) {
         __boot = .;
@@ -57,4 +59,25 @@ macro_rules! boot0 {
             )
         }
     };
+}
+
+extern "C" {
+    static mut __sbss: u8;
+    static mut __ebss: u8;
+}
+
+/// 清零 .bss。
+///
+/// # Safety
+///
+/// 必须在使用 .bss 内任何东西之前调用。
+pub unsafe fn zero_bss() {
+    let mut ptr = &mut __sbss as *mut u8;
+    let end = &mut __ebss as *mut u8;
+
+    while ptr < end {
+        // 必须 volatile，不能用 `slice::fill`，因为需要多核可见。
+        ptr.write_volatile(0);
+        ptr = ptr.add(1);
+    }
 }

@@ -11,6 +11,8 @@ use rcore_console::log::*;
 linker::boot0!(rust_main; stack = 4096);
 
 extern "C" fn rust_main(_hartid: usize, _dtb_ptr: usize) -> ! {
+    // 清零 .bss
+    unsafe { linker::zero_bss() };
     // 初始化 `console`
     rcore_console::init_console(&Console);
     rcore_console::set_log_level(option_env!("LOG"));

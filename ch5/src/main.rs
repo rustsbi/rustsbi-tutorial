@@ -6,7 +6,9 @@
 linker::boot0!(rust_main; stack = 4096);
 
 extern "C" fn rust_main() -> ! {
-    unreachable!()
+    // 清零 .bss
+    unsafe { linker::zero_bss() };
+    unsafe { &*(0x10_0000 as *const sifive_test_device::SifiveTestDevice) }.pass()
 }
 
 #[panic_handler]
