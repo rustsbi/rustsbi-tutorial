@@ -18,13 +18,13 @@
 
 ## 进度
 
-> 包括代码和书的进度。
-
-- [ ] [§1](ch1)：简单的机器态裸机应用程序
-- [ ] [§2](ch2)：扩展裸机应用程序
-- [ ] [§3](ch3)：[sbi-spec](https://crates.io/crates/sbi-spec)，内核的加载和引导以及 SBI §5(Legacy)
-- [ ] [§4](ch4)：SBI §3(Binary) + §4(Base)
-- [ ] [§5](ch5)：使用 RustSBI + SBI §10(SRST)
-- [ ] [§6](ch6)：SBI §6(TIME) + §7(sPI)
-- [ ] [§7](ch7)：SBI §9(HSM)
-- [ ] [§8](ch8)：SBI 多核支持
+| 章节     | 代码 | 教程 | 主要内容
+|:-------:|:---:|:---:|-
+|[§1](ch1)|  ✓  |     | 简单的机器态裸机应用程序
+|[§2](ch2)|  ✓  |     | 扩展裸机应用程序
+|[§3](ch3)|     |     | [sbi-spec](https://crates.io/crates/sbi-spec)，内核的加载和引导以及 SBI §5(Legacy)
+|[§4](ch4)|     |     | SBI §3(Binary) + §4(Base)
+|[§5](ch5)|     |     | 使用 RustSBI + SBI §10(SRST)
+|[§6](ch6)|     |     | SBI §6(TIME) + §7(sPI)
+|[§7](ch7)|     |     | SBI §9(HSM)
+|[§8](ch8)|     |     | SBI 多核支持
