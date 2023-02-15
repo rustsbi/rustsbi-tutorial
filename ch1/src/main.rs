@@ -1,7 +1,11 @@
+//! 书在 [`book`] 模块中。
+
 #![no_std]
 #![no_main]
 #![feature(naked_functions, asm_const)]
-#![deny(warnings)]
+#![deny(warnings, missing_docs, rustdoc::broken_intra_doc_links)]
+
+mod book;
 
 static HELLO: &[u8] = b"Hello";
 static WORLD: &[u8] = b", rustsbi!\n";
