@@ -1,5 +1,6 @@
 [alias]
 xtask = "run --package xtask --release --"
+book = "xtask book"
 make = "xtask make"
 asm = "xtask asm"
 qemu = "xtask qemu"

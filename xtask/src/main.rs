@@ -26,14 +26,20 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
+    /// 生成文档。
+    Book(BookArgs),
+    /// 生成二进制文件。
     Make(BuildArgs),
+    /// 生成反汇编文件。
     Asm(AsmArgs),
+    /// 在 Qemu 中测试。
     Qemu(QemuArgs),
 }
 
 fn main() {
     use Commands::*;
     match Cli::parse().command {
+        Book(args) => args.build(),
         Make(args) => {
             let _ = args.make();
         }
@@ -43,14 +49,43 @@ fn main() {
 }
 
 #[derive(Args, Default)]
-struct BuildArgs {
-    /// chapter number
+struct BookArgs {
+    /// Chapter number
     #[clap(short, long)]
     ch: u8,
-    /// log level
+    /// Opens the book in a browser after the operation
+    #[clap(long)]
+    open: bool,
+}
+
+impl BookArgs {
+    fn build(&self) {
+        let package = format!("ch{}", self.ch);
+        if self.open {
+            Cargo::doc().package(&package).arg("--open").invoke();
+        } else {
+            Cargo::doc().package(&package).invoke();
+            println!(
+                "{}",
+                TARGET
+                    .join("doc")
+                    .join(package)
+                    .join("index.html")
+                    .display()
+            );
+        }
+    }
+}
+
+#[derive(Args, Default)]
+struct BuildArgs {
+    /// Chapter number
+    #[clap(short, long)]
+    ch: u8,
+    /// Log level
     #[clap(long)]
     log: Option<String>,
-    /// build in release mode
+    /// Builds in release mode
     #[clap(long)]
     release: bool,
 }
