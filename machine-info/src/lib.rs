@@ -76,16 +76,12 @@ impl MachineInfo {
                     } else {
                         StepOver
                     }
-                } else if current == Str::from(SOC) {
-                    if name.starts_with(UART)
-                        || name.starts_with(SERIAL)
-                        || name.starts_with(TEST)
-                        || name.starts_with(CLINT)
-                    {
-                        StepInto
-                    } else {
-                        StepOver
-                    }
+                } else if current == Str::from(SOC)
+                    && ["uart", "serial", "test", "clint"]
+                        .iter()
+                        .any(|pre| name.starts_with(pre))
+                {
+                    StepInto
                 } else {
                     if current == Str::from(CPUS) && name.starts_with("cpu@") {
                         ans.smp += 1;

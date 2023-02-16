@@ -56,9 +56,9 @@ fn shutdown() -> ! {
 }
 
 struct MachineInfo {
-    pub model: &'static str,
-    pub uart: usize,
-    pub test: usize,
+    model: &'static str,
+    uart: usize,
+    test: usize,
 }
 
 impl MachineInfo {
@@ -77,22 +77,14 @@ impl MachineInfo {
         dtb.walk(|ctx, obj| match obj {
             DtbObj::SubNode { name } => {
                 let current = ctx.name();
-                if ctx.is_root() {
-                    if name == Str::from("soc") {
-                        StepInto
-                    } else {
-                        StepOver
-                    }
-                } else if current == Str::from("soc") {
-                    if name.starts_with("uart")
-                        || name.starts_with("serial")
-                        || name.starts_with("test")
-                        || name.starts_with("clint")
-                    {
-                        StepInto
-                    } else {
-                        StepOver
-                    }
+                if ctx.is_root() && name == Str::from("soc") {
+                    StepInto
+                } else if current == Str::from("soc")
+                    && ["uart", "serial", "test", "clint"]
+                        .iter()
+                        .any(|pre| name.starts_with(pre))
+                {
+                    StepInto
                 } else {
                     StepOver
                 }
