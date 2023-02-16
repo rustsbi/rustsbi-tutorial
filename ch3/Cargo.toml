@@ -9,6 +9,7 @@ authors = ["YdrMaster <ydrml@hotmail.com>"]
 [dependencies]
 sifive-test-device = "0.0.0"
 linker = { path = "../linker" }
+machine-info = { path = "../machine-info" }
 
 [build-dependencies]
 linker = { path = "../linker" }
