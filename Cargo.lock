@@ -46,6 +46,8 @@ version = "0.0.0"
 dependencies = [
  "linker",
  "machine-info",
+ "rcore-console",
+ "sbi-spec",
  "sifive-test-device",
 ]
 
@@ -54,6 +56,9 @@ name = "ch4"
 version = "0.0.0"
 dependencies = [
  "linker",
+ "machine-info",
+ "rcore-console",
+ "sbi-spec",
  "sifive-test-device",
 ]
 
@@ -62,14 +67,50 @@ name = "ch5"
 version = "0.0.0"
 dependencies = [
  "linker",
+ "machine-info",
+ "rcore-console",
+ "sbi-spec",
+ "sifive-test-device",
+]
+
+[[package]]
+name = "ch6"
+version = "0.0.0"
+dependencies = [
+ "linker",
+ "machine-info",
+ "rcore-console",
+ "sbi-spec",
+ "sifive-test-device",
+]
+
+[[package]]
+name = "ch7"
+version = "0.0.0"
+dependencies = [
+ "linker",
+ "machine-info",
+ "rcore-console",
+ "sbi-spec",
+ "sifive-test-device",
+]
+
+[[package]]
+name = "ch8"
+version = "0.0.0"
+dependencies = [
+ "linker",
+ "machine-info",
+ "rcore-console",
+ "sbi-spec",
  "sifive-test-device",
 ]
 
 [[package]]
 name = "clap"
-version = "4.1.4"
+version = "4.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f13b9c79b5d1dd500d20ef541215a6423c75829ef43117e1b4d17fd8af0b5d76"
+checksum = "ec0b0588d44d4d63a87dbd75c136c166bbfd9a86a31cb89e09906521c7d3f5e3"
 dependencies = [
  "bitflags",
  "clap_derive",
@@ -324,6 +365,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "sbi-spec"
+version = "0.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6d4027cf9bb591a9fd0fc0e283be6165c5abe96cb73e9f0e24738c227f425377"
+dependencies = [
+ "static_assertions",
+]
+
+[[package]]
 name = "scopeguard"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -369,6 +419,12 @@ checksum = "7dccf47db1b41fa1573ed27ccf5e08e3ca771cb994f776668c5ebda893b248fc"
 dependencies = [
  "lock_api",
 ]
+
+[[package]]
+name = "static_assertions"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
 name = "strsim"

@@ -46,7 +46,6 @@ fn panic(info: &core::panic::PanicInfo) -> ! {
 struct Console;
 
 impl rcore_console::Console for Console {
-    #[inline]
     fn put_char(&self, c: u8) {
         unsafe { (UART as *mut u8).write_volatile(c) };
     }
