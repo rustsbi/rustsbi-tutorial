@@ -7,7 +7,8 @@
 #![feature(naked_functions, asm_const)]
 #![deny(warnings, missing_docs, rustdoc::broken_intra_doc_links)]
 
-mod book;
+#[doc = include_str!("book.md")]
+mod book {}
 
 static HELLO: &[u8] = b"Hello";
 static WORLD: &[u8] = b", rustsbi!\n";
